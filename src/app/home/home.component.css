@@ -1,0 +1,74 @@
+#tshop {
+    color: black;
+    background-color:#D5FF3D;
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: 1px solid black;
+    font-size: 30px;
+}
+
+#header {
+   width: 100%;
+} 
+
+
+
+#header1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border: 1px solid black;
+    display: inline;
+    
+    text-decoration: none;
+}
+
+.header1 {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #000;
+    display: inline;
+}
+
+#header2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    border-left: 0px solid black;
+    border-right: 1px solid black;
+    display: inline;
+    border: 1px solid black;
+    text-decoration: none;
+    display: inline;
+}
+
+#header2 a {
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+    text-decoration: none;
+    color: #000;
+    
+    
+}
+
+#men {
+    
+    
+    display: inline;
+    
+    text-decoration: none;
+    
+}
+
+#logo {
+    display: block; margin: auto;
+    margin-top: 80px;
+}

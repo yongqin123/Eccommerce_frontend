@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+.header {
+    margin-right:20px;
+    
+    padding: 8px;
+    
+}
+
+
+#logo {
+    display: inline-block;
+    margin-right: 90px;
+
+}
+
+#Quantity {
+    width: 10px;
+}
+
+th, td {
+  padding: 10px;
+}
