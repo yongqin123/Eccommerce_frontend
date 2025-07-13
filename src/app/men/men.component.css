@@ -76,11 +76,11 @@
 }
 
 .fleximg {
-    width: 33%;
-    margin: 2px;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
 }
 
-a:hover {
-    background-color: #D5FF3D;
-    color: white;
+.flex-container {
+    display: flex;
 }

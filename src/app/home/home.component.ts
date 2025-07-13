@@ -16,31 +16,5 @@ export class HomeComponent {
   
 
 
-  item_name :string[] = ["Green Shirt", "Long Sleeve Shirt", "jacket"];
-
-  item_pic :string[] = ["item0.png", "item1.png", "item2.png"];
-  item_price : string[] = ["$15.00", "$20.00", "$30.00"]
-  one: string = '';
-  two: string = '';
-  three: string = '';
-  quantities = [0, 0, 0];
-
-  oneArray: string[] = [];
-  twoArray: string[] = [];
-  threeArray: string[] = [];
-
-  addToCart(index: number) {
-    const item = {
-      name: this.item_name[index],
-      price: this.item_price[index],
-      quantity: this.quantities[index]
-    };
-
-    
-
-     
-  }
-
-  
   
 }
