@@ -1,33 +1,69 @@
 <div>
-  <div id="header">
-    <a id="tshop" href>T SHOP</a>
-    <div id="header2">
-      <a id="new" href>New</a>
-      <a id="women" >Women</a>
-      <a id="men" href="/men" >Men</a>
-    </div>
-    <div id="header1">
-      <a class="header1" href><img src="account.png" /> </a>
-      <a class="header1" id="login" href>Log In</a>
-      <a class="header1" href="/cart"><img src="cart.png" /> </a>
-    </div>
-  </div>
   <div>
-    <img src="logo.png" id="logo"/>
-  </div>
-  <div class="flex-container">
-    <div >
-        <img class="fleximg" src="item0.png" />
-        <h2>green clothes</h2>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="margin-left:300px;width: 30%;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="/home/logo2.png" /></a>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/women">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/men">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/new">New Arrivals</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/home/account.png"/>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/cart">Cart</a></li>
+              <li><a class="dropdown-item" href="/account">Account Details</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            
+          </li>
+        </ul>
+      </div>
     </div>
-    <div >
-        <img class="fleximg" src="item1.png" />
-    </div>
-    <div >
-        <img class="fleximg" src="item2.png" />
-    </div>
-  <div>
+  </nav>
     
   </div>
-</div>
+  <div class="image" style="position: relative; width: 100vw; height: 600px; background-color: black;">
+    
+  </div>
+  <div style="display: flex;
+  align-items: center;
+  justify-content: center;">
+    <h1 style="position: absolute; top: 200px; z-index: 10; color:#364555; font-size: 100px;">
+      Gentleman's Collection
+    </h1>
+    <h6 style="position: absolute; top: 350px; z-index: 10; color:rgb(202, 194, 194);font-size: 30px;">
+      Discover modern essentials crafted for the contemporary<br>man who values quality, style, and confidence.
+    </h6>
+    <h1 style="position: absolute; top: 800px; z-index: 10; color:black; font-size: 60px;">
+      Featured Products
+    </h1>
+    <h6 style="position: absolute; top: 900px; color: #615858;">Handpicked pieces that define contemporary masculine style</h6>
+    <div style="position: absolute; top: 1000px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+      <div *ngFor="let item of items">
+        <div class="card" style="width: 400px;">
+          <img [src]="'https:/localhost:7277/' + item.gender + '/' + item.path" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 id="{{item.id}}_name" class="card-title">{{item.name}}</h5>
+            <h5 hidden id="{{item.id}}_gender" class="card-title">{{item.name}}</h5>
 
+            <h5 id="{{item.id}}_price" class="card-text">{{item.price | currency}}</h5>
+              <input id="{{item.id}}_quantity" type="number" class="card-text" min="1" max="10" value="1"/><br>
+            
+            <button type="button" id="{{item.id}}" (click)="addToCart($event)" class="btn btn-primary" style="background-color: #5044e4;">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

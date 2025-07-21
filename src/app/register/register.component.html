@@ -1,0 +1,53 @@
+<body>
+<div style="position: relative;height: 100vh;width: 100vw;">
+    
+    
+        <form [formGroup]="form" (submit)="saveChanges()" style="position:relative;margin: 0 auto; width:600px;height:100%;background-color: white;box-shadow: 1px 1px 1px black;box-shadow: 16px 15px 84px 0px rgba(0,0,0,0.75);">
+            <img src="/home/logo2.png" style="margin: 20px;"/>
+            <h1 style="margin-top: 40px;margin-left: 100px;">
+                Register
+            </h1>
+            <h6 style="margin-left: 100px; color:rgb(46, 41, 35)">
+                Please enter your details
+            </h6>
+            <br>
+            <label class="form-label" style="margin-left: 100px;">
+                Name
+            </label>
+            <input [formControl]="form.controls.name" type="text" class="form-control" style="margin-left: 100px;width: 300px;"/>
+            <br>
+            <label class="form-label" style="margin-left: 100px;">
+                Email Address
+            </label>
+            <input [formControl]="form.controls.email" type="email" class="form-control" style="margin-left: 100px;width: 300px;"/>
+            <br>
+            <label class="form-label" style="margin-left: 100px;">
+                Password
+            </label>
+            <input [formControl]="form.controls.password" type="password" class="form-control" style="margin-left: 100px;width: 300px;"/>
+            <br>
+            <label class="form-label" style="margin-left: 100px;">
+                Phone Number
+            </label>
+            <input [formControl]="form.controls.phone" type="text" class="form-control" style="margin-left: 100px;width: 300px;"/>
+            <br>
+            <label class="form-label" style="margin-left: 100px;">
+                Address
+            </label>
+            <input [formControl]="form.controls.address" type="text" class="form-control" style="margin-left: 100px;width: 300px;"/>
+            <br>
+            <label class="form-label" style="margin-left: 100px;">
+                City
+            </label>
+            <input [formControl]="form.controls.city" type="text" class="form-control" style="margin-left: 100px;width: 300px;"/>
+            <input type="hidden" [formControl]="form.controls.accountType" value="customer" />
+
+            <br>
+            
+            <br>
+            <button type="submit" class="btn btn-primary" style="width: 100px;margin-left: 100px; background-color: #CBC3E3; color: #000;">Sign Up</button>
+        </form>
+    
+    
+</div>
+</body>

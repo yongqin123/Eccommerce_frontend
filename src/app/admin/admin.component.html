@@ -1,0 +1,75 @@
+<div>
+  
+  <div>
+    <img src="/home/logo.png" id="logo"/>
+  </div>
+  <div class="flex-container">
+    <!--Button For Add Item-->
+    <button type="button" style="font-size: 50px;background-color: transparent;border: 0px;" data-bs-toggle="modal" data-bs-target="#AddItem" data-bs-whatever="@mdo"><img src="/admin/AddItem.png" style="height: 100px; width: 100px;"/>Add Item</button>
+    
+    <button type="button" (click)="viewItem()" style="font-size: 50px;background-color: transparent;border: 0px;"><img src="/admin/notes.png" style="height: 100px; width: 100px;"/>View Item</button>
+
+
+    <!--Add Item-->
+    
+    <div class="modal fade" id="AddItem" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form [formGroup]="form" (submit)="saveChanges()">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!--Title-->
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Item</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!--Form-->
+            
+              <div class="mb-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Name:</mat-label>
+                  <input  matInput [formControl]="form.controls.name" />
+                </mat-form-field>
+              </div>
+              <div class="mb-3">
+                <input type="file" style="display: none;" #fileInput accept="Image*" (change)="imageSelected($event)">
+                <button type="button" mat-button (click)="fileInput.click()" style="color:black">Select Image</button>
+                <br>
+                @if (imageBase64) {
+                  <img height="250" [src]="imageBase64">
+                }
+              </div>
+              <div class="mb-3">
+                <select [(ngModel)]="selectedOption" [formControl]="form.controls.gender" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="width: 200px;">
+                  <option selected="Gender" value="Gender">Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Price</mat-label>
+                  <input [formControl]="form.controls.price" matInput type="number" class="example-right-align" />
+                  <span matTextPrefix>$&nbsp;</span>
+                  <span matTextSuffix></span>
+                </mat-form-field>
+              </div>
+            
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          
+        </div>
+        </form>
+      </div>
+      </div>
+    
+  </div>
+  <div>
+    
+  </div>
+</div>
+
+
