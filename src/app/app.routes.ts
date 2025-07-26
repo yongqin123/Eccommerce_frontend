@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { ItemsComponent } from './items/items.component';
 import { RegisterComponent } from './register/register.component';
+import { WomenComponent } from './women/women.component';
+import { ItemComponent } from './item/item.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +46,17 @@ export const routes: Routes = [
     title: 'Men',
   },
 
+  {
+    path: "women",
+    component: WomenComponent,
+    title: 'Women',
+  },
+
+  {
+    path: "item",
+    component: ItemComponent,
+    title: "item",
+  },
 
   {
     path: 'cart',

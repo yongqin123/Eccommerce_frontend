@@ -9,21 +9,21 @@ import { Cart } from '../cart';
 @Component({
   selector: 'app-men',
   imports: [CommonModule],
-  templateUrl: './men.component.html',
-  styleUrl: './men.component.css'
+  templateUrl: './women.component.html',
+  styleUrl: './women.component.css'
 })
-export class MenComponent implements OnInit{
+export class WomenComponent implements OnInit{
 
   items : Item[] = [];
   
 
   constructor(public service: HttpService )  {}
     ngOnInit(): void {
-      this.getMen();
+      this.getWomen();
       
   }
-  public getMen() {
-    this.service.getAllMenItems().subscribe(( data : Item[] ) => {
+  public getWomen() {
+    this.service.getAllWomanItems().subscribe(( data : Item[] ) => {
       this.items = data;
       console.log(data);
     })
@@ -44,15 +44,6 @@ export class MenComponent implements OnInit{
     console.log(localStorage.getItem("email"));
     var cart = new Cart(undefined,parseInt(button.id),localStorage.getItem("email")??"",parseInt(quantity));
     this.service.addCart(cart).subscribe();
-  }
-
-  goToItem(event: Event) {
-    var div = event.currentTarget as HTMLDivElement;
-   
-    localStorage.setItem("itemId", div.id);
-    //console.log(div.id)
-    //console.log(localStorage.getItem("itemId"));
-    window.location.href = "/item";
   }
 
 }

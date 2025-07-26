@@ -1,0 +1,51 @@
+a {
+    font-family: "Inter", sans-serif;
+    margin-right: 35px;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: "Inter", sans-serif;
+    margin: auto;
+    font-size: 70px;
+}
+
+h3 {
+    font-family: "Inter", sans-serif;
+    margin: auto;
+}
+
+h6 {
+    font-size: 20px;
+}
+
+
+.fleximg {
+    width: 33%;
+    margin: 2px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+td, th {
+    width: 300px;
+}
+
+.image {
+    content:url(/men/grey.avif);
+}
+
+#male {
+  height: 270px;
+  width: 230px;
+  box-shadow: 0.1px 0.1px 8px rgba(255, 255, 255, 0.629);
+  text-shadow: 0.1px 0.1px 10px rgba(255, 255, 255, 0.629);
+  opacity: 0.8;
+  border-radius: 3%;
+  margin: 20px 15px 0px 10px;
+  /* display: inline-block; */
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+}
