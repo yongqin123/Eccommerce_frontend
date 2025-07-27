@@ -1,37 +1,77 @@
-<div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white" style="margin-left:300px;width: 30%;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="/home/logo2.png" /></a>
-    
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/women">Women</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/men">Men</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/new">New Arrivals</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/home/account.png"/>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/cart">Cart</a></li>
-            <li><a class="dropdown-item" href="/account">Account Details</a></li>
-            <li><a class="dropdown-item" href="/">Log Out</a></li>
+<div style="width: 100vw;height: 100vh;">
+  <div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-white" style="margin-left:300px;width: 30%;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="/home/logo2.png" /></a>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/women">Women</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/men">Men</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/new">New Arrivals</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/home/account.png"/>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/cart">Cart</a></li>
+              <li><a class="dropdown-item" href="/account">Account Details</a></li>
+              <li><a class="dropdown-item" href="/">Log Out</a></li>
 
-          </ul>
-        </li>
-        <li class="nav-item">
-          
-        </li>
-      </ul>
+            </ul>
+          </li>
+          <li class="nav-item">
+            
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+
   </div>
-</nav>
-
-
+  <div style="position:absolute;left: 52%;width: 50%;">
+    <h2>
+      {{item?.name}}
+    </h2>
+    <br>
+    <h2 style="color:#f06c44">
+      {{ item?.price| currency}}
+    </h2>
+    <br>
+    <h4>
+      Size
+    </h4>
+    
+    <select class="form-select" aria-label="Default select example" style="width: 90%;">
+      <option selected>Select Size</option>
+      <option value="XS">XS</option>
+      <option value="S">S</option>
+      <option value="M">M</option>
+      <option value="L">L</option>
+      <option value="XL">XL</option>
+    </select>
+    <br>
+    <h4>
+      Quantity
+    </h4>
+    <div style="display: flex; align-items: center; gap: 5px; width: fit-content;">
+      <button class="btn btn-primary mb-3" style="margin-top: 13px;color: black;background-color: white;width: 50px;border:black"  (click)="minusQuantity()">-</button>
+      <input id="quantity" type="number" class="form-control" style="width: 60px;" value="1" min="0" max="10"/>
+      <button class="btn btn-primary mb-3" style="margin-top: 13px;color:black;background-color: white;border:black;width: 50px;" (click)="addQuantity()">+</button>
+    </div>
+    <button style="background-color: #f06c44; width: 90%;" class="btn btn-primary mb-3"><img src="/cart/shipping.png" />&nbsp; Add To Cart</button>
+    <button style="background-color: white; width: 90%;color:black;border:1px solid black" class="btn btn-primary mb-3" ><img src="/cart/heart.png" />&nbsp; Add To Wishlist</button>
+  </div>
+  <div style="display: inline;width: 50%;" >
+    <img [src]="'https:/localhost:7277/' + item?.gender + '/' + item?.path" style="border-radius: 15px;width: 40%;;margin-left: 10%;height: 90%"/> 
+  </div>
+  
+  
 </div>
