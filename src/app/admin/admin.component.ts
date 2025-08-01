@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, signal, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, signal, inject, OnInit} from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
@@ -9,15 +9,16 @@ import {MatSelectModule} from '@angular/material/select';
 import { HttpService } from '../http_service';
 import { Item } from '../Item';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-admin',
-  imports: [ReactiveFormsModule, MatButtonModule, MatFormField, MatInputModule, MatIconModule, MatSelectModule],
+  imports: [CommonModule,ReactiveFormsModule, MatButtonModule, MatFormField, MatInputModule, MatIconModule, MatSelectModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
 
   selectedOption = 'Gender';
   hide = signal(true);
@@ -77,5 +78,26 @@ export class AdminComponent {
     window.location.href = "/items";
   }
 
+  total : number = 0;
+
+  items : Item[] = [];
+  
+
+  constructor(public service: HttpService )  {}
+    ngOnInit(): void {
+      this.getItems();
+  }
+  
+  getItems() {
+  this.service.getAllItems().subscribe((data: Item[]) => {
+    this.items = data;
+    console.log(this.items);
+
+    for (let i = 0; i < this.items.length; i++) {
+      this.total += 1;
+      console.log("1");
+    }
+  });
+}
 
 }

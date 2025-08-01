@@ -42,8 +42,8 @@ export class WomenComponent implements OnInit{
     console.log(parseFloat(price ?? ""));
     console.log(parseInt(quantity));
     console.log(localStorage.getItem("email"));
-    var cart = new Cart(undefined,parseInt(button.id),localStorage.getItem("email")??"",parseInt(quantity));
-    this.service.addCart(cart).subscribe();
+    //var cart = new Cart(undefined,parseInt(button.id),localStorage.getItem("email")??"",parseInt(quantity));
+    //this.service.addCart(cart).subscribe();
   }
 
 }

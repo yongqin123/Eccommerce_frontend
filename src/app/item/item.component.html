@@ -13,7 +13,7 @@
             <a class="nav-link active" href="/men">Men</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/new">New Arrivals</a>
+            <a class="nav-link active" href="/new">New</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,20 +37,21 @@
 
   </div>
   <div style="position:absolute;left: 52%;width: 50%;">
-    <h2>
+    <h2 id="name">
       {{item?.name}}
     </h2>
     <br>
-    <h2 style="color:#f06c44">
+    <h2 id="price" style="color:#f06c44">
       {{ item?.price| currency}}
     </h2>
+
     <br>
     <h4>
       Size
     </h4>
     
-    <select class="form-select" aria-label="Default select example" style="width: 90%;">
-      <option selected>Select Size</option>
+    <select id="size" class="form-select" aria-label="Default select example" style="width: 90%;">
+      <option value="" disabled selected>Select Size</option>
       <option value="XS">XS</option>
       <option value="S">S</option>
       <option value="M">M</option>
@@ -66,7 +67,7 @@
       <input id="quantity" type="number" class="form-control" style="width: 60px;" value="1" min="0" max="10"/>
       <button class="btn btn-primary mb-3" style="margin-top: 13px;color:black;background-color: white;border:black;width: 50px;" (click)="addQuantity()">+</button>
     </div>
-    <button style="background-color: #f06c44; width: 90%;" class="btn btn-primary mb-3"><img src="/cart/shipping.png" />&nbsp; Add To Cart</button>
+    <button id={{item?.id}} (click)="addToCart($event)" style="background-color: #f06c44; width: 90%;" class="btn btn-primary mb-3"><img src="/cart/shipping.png" />&nbsp; Add To Cart</button>
     <button style="background-color: white; width: 90%;color:black;border:1px solid black" class="btn btn-primary mb-3" ><img src="/cart/heart.png" />&nbsp; Add To Wishlist</button>
   </div>
   <div style="display: inline;width: 50%;" >

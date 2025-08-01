@@ -80,12 +80,22 @@ export class ItemsComponent {
 
     formData.append('Name', item.name);
     formData.append('Gender', item.gender);
-    formData.append('path', item.path);
+    formData.append('path', item.path as File);
     formData.append('Price', item.price.toString());
     
-    this.itemService.updateItem(formData, item.id).subscribe();
-    console.log(item.name);
-    window.location.href = "/items";
+    this.itemService.updateItem(formData, item.id).subscribe({
+  next: (response) => {
+    console.log('✅ Success:', response);
+  },
+  error: (err) => {
+    console.error('❌ Error:', err);
+  },
+  complete: () => {
+    console.log('🔁 Request completed.');
+  }
+});
+    
+    //window.location.href = "/items";
   }
   
     constructor(public service: HttpService )  {}

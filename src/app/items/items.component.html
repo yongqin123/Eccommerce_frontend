@@ -1,8 +1,9 @@
 <div>
-    <table>
+    <h3>Clothing Inventory</h3>
+    <table mat-table>
         
         <thead>
-            <tr><th>Id</th> <th>Name</th> <th>Gender</th> <th>Image</th> <th>Price</th></tr>
+            <tr><th>Id</th> <th>Name</th> <th>Gender</th> <th>Image</th> <th>Price</th><th>Edit</th><th>Delete</th></tr>
         </thead>
         <tbody>
             <tr *ngFor="let item of items">
@@ -45,13 +46,11 @@
                                 <img height="250" [src]="imageBase64">
                                 }
                             </div>
-                            <div class="mb-3">
-                                <select [formControl]="form.controls.gender" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" style="width: 200px;">
-                                <option >Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                </select>
-                            </div>
+                            <select [formControl]="form.controls.gender" class="form-select form-select-lg mb-3" aria-label="Gender" style="width: 200px;">
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            </select>
                             <div class="mb-3">
                                 <mat-form-field appearance="outline">
                                 <mat-label>Price</mat-label>

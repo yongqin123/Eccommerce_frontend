@@ -6,5 +6,6 @@ export class Cart {
     public itemId: number,
     public email: string,
     public quantity: number,
+    public size: string,
   ) {}
 }

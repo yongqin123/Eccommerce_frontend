@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white" style="margin-left:300px;width: 30%;">
+<div style="position: relative;width: 100vw;">
+<nav class="navbar navbar-expand-lg navbar-light bg-white" style="margin-left:15%;width: 30%;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/home"><img src="/home/logo2.png" /></a>
     
@@ -11,7 +12,7 @@
           <a class="nav-link active" href="/men">Men</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/new">New Arrivals</a>
+          <a class="nav-link active" href="/new">New</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,6 +41,7 @@
     <div class="card-body">
       <h4 class="card-title">Order Summary</h4>
       <h6 style="display:inline" class="card-text">SubTotal:</h6 ><h6 style="display:inline;margin-left: 90px;">{{totalPrice | currency}}</h6>
+      <br>
       <h6 style="display:inline" class="card-text">Shipping:</h6 ><h6 style="display:inline;margin-left: 90px;">Free</h6><br>
       <h4 style="display:inline" class="card-title">Total</h4><h4 style="display:inline;margin-left: 110px;">{{totalPrice | currency}}</h4>
       <br>
@@ -57,11 +59,26 @@
           <img  style="position:absolute;margin-left: 280px;" src="/cart/heart.png" />
           <img (click)="deleteCart()" style="cursor: pointer;position:absolute;margin-left: 300px;z-index: 10;" src="/cart/delete.png" />
           <h5 style="" class="card-title">{{itemMap[cart.itemId]?.name}} </h5>
+          
           <h5 style="" class="card-text">{{itemMap[cart.itemId]?.price | currency}} </h5>
-          <input  id="{{cart.id}}_{{cart.itemId}}" (change)="updateCart($event)" style="" class="card-text form-control" style="width: 80px;" type="number" value={{cart.quantity}} min="1" max="10" />
+          <select id="size" class="form-select" aria-label="Default select example" style="width: 90%;">
+            <option value="" disabled selected>Select Size</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+          </select>
+
+          <div style="display: flex; align-items: center; gap: 5px; width: fit-content;">
+            <button id="{{cart.id}}_{{cart.itemId}}_minus" class="btn btn-primary mb-3" style="margin-top: 13px;color: black;background-color: white;width: 50px;border:black" (click)="minusQuantity($event)">-</button>
+            <input id="{{cart.id}}_{{cart.itemId}}" type="number" (change)="updateCartThroughInput($event)" class="form-control" style="width: 60px;" value={{cart.quantity}} min="0" max="10"/>
+            <button id="{{cart.id}}_{{cart.itemId}}_plus" class="btn btn-primary mb-3" style="margin-top: 13px;color:black;background-color: white;border:black;width: 50px;" (click)="addQuantity()">+</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
   
+</div>
 </div>

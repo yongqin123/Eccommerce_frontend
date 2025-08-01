@@ -1,13 +1,51 @@
-<div>
-  
-  <div>
-    <img src="/home/logo.png" id="logo"/>
+<h3 style="margin-left: 15%;margin-top:5%">
+  Welcome back, Admin
+</h3>
+<p style="margin-left: 15%;">
+  Manage your fashion inventory with ease
+</p>
+
+<div class="flex-container" style="margin-left:15%;margin-top:50px;">
+  <div class="card" style="width: 18rem;padding:30px  ">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <img style="width:50px; height:50px;" src="/admin/box.png" />
+      <p class="card-text" style="">Total Items</p>
+      <br>
+      
+    </div>
+    <h3 style="margin-right:155px;">{{total}}</h3>
   </div>
-  <div class="flex-container">
-    <!--Button For Add Item-->
-    <button type="button" style="font-size: 50px;background-color: transparent;border: 0px;" data-bs-toggle="modal" data-bs-target="#AddItem" data-bs-whatever="@mdo"><img src="/admin/AddItem.png" style="height: 100px; width: 100px;"/>Add Item</button>
+</div>
+
+<div class="flex-container" style="margin-left:55%;margin-top:50px;position:absolute">
+  <div class="card" style="width: 100%;padding:30px  ">
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="/admin/hide.png" style="width:30px; height:30px;" />
+        <h5 class="card-title" style="margin: 0;">View All Clothes</h5>
+      </div>
+    <p class="card-text">Browse and manage your entire collection</p>
+    <button type="button" (click)="viewItem()" style="font-size: 20px;background-color: transparent;border: 0px;">View Collection</button>
+  </div>
+</div>
+
+<div class="flex-container" style="margin-left:15%;margin-top: 50px;">
+  <!--Button For Add Item-->
+  <div class="card" style="width: 40%;padding:30px">
+    <div>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="/admin/AddItem.png" style="width:30px; height:30px;" />
+        <h5 class="card-title" style="margin: 0;">Add New Clothes</h5>
+      </div>
+      <p class="card-text">Add new fashion items to your inventory</p>
+      <button type="button" style="font-size: 20px;width:80%;background-color: #f06c44;color:white;border: 0px;" data-bs-toggle="modal" data-bs-target="#AddItem" data-bs-whatever="@mdo">Add Items Now</button>
+    </div>
+  </div>
+</div>  
+
+
+
+
     
-    <button type="button" (click)="viewItem()" style="font-size: 50px;background-color: transparent;border: 0px;"><img src="/admin/notes.png" style="height: 100px; width: 100px;"/>View Item</button>
 
 
     <!--Add Item-->
@@ -66,10 +104,10 @@
       </div>
       </div>
     
-  </div>
+  
   <div>
     
   </div>
-</div>
+
 
 
