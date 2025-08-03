@@ -10,6 +10,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { HttpService } from '../http_service';
 import { Item } from '../Item';
 import { Router } from '@angular/router';
+import { ItemStringPath } from '../itemStringPath';
+//import { ItemStringPath } from '../ItemStringPath';
 
 @Component({
   selector: 'app-items',
@@ -33,7 +35,7 @@ export class ItemsComponent {
   form = this.formBuilder.group({
     id : [0],
     name : ['', {validators: [Validators.required]}],
-    path : new FormControl<null | File>(null, {validators: [Validators.required]}),
+    path : new FormControl<null | File | string>(null, {validators: [Validators.required]}),
     gender : ['', {validators: [Validators.required]}],
     price : [0, {validators: [Validators.required]}],
 
@@ -45,7 +47,8 @@ export class ItemsComponent {
     id: item.id,
     name: item.name,
     gender: item.gender,
-    price: item.price
+    price: item.price,
+    path: item.path
   });
 
   // Optional: If you want to show the existing image
@@ -73,30 +76,43 @@ export class ItemsComponent {
   }
 
   saveChanges() {
-    const item = this.form.value as Item;
-    
-    const formData = new FormData();
-    formData.append('Id', item.id.toString());
+  const id = this.form.get('id')?.value ?? 0;
+  const name = this.form.get('name')?.value ?? "";
+  const gender = this.form.get('gender')?.value ?? "";
+  const price = this.form.get('price')?.value ?? 0;
 
-    formData.append('Name', item.name);
-    formData.append('Gender', item.gender);
-    formData.append('path', item.path as File);
-    formData.append('Price', item.price.toString());
-    
-    this.itemService.updateItem(formData, item.id).subscribe({
-  next: (response) => {
-    console.log('✅ Success:', response);
-  },
-  error: (err) => {
-    console.error('❌ Error:', err);
-  },
-  complete: () => {
-    console.log('🔁 Request completed.');
+  const pathControlValue = this.form.get('path')?.value;
+  console.log("id " +id);
+  console.log("n " +name);
+  console.log("g " +gender);
+  console.log("p " +price);
+  const isFile = pathControlValue instanceof File;
+  const path = isFile ? "" : pathControlValue ?? ""; // only use path if it's a string
+
+  const itemWithNoChangeInImage = new ItemStringPath(id, name, gender, path, price);
+  console.log("id " +id);
+  console.log("n " +name);
+  console.log("g " +gender);
+  console.log("p " +price);
+  if (isFile) {
+    const formDataWithChangeInImage = new FormData();
+    formDataWithChangeInImage.append('Id', id.toString());
+    formDataWithChangeInImage.append('Name', name);
+    formDataWithChangeInImage.append('Gender', gender);
+    formDataWithChangeInImage.append('Path', pathControlValue); // this is the File
+    formDataWithChangeInImage.append('Price', price.toString());
+
+    this.itemService.updateItem(formDataWithChangeInImage, id).subscribe({
+      
+    });
+  } else {
+    this.itemService.updateItemWithNoChangeInImage(itemWithNoChangeInImage, id).subscribe({
+      
+    });
   }
-});
-    
-    //window.location.href = "/items";
-  }
+
+  window.location.href = "/items";
+}
   
     constructor(public service: HttpService )  {}
       ngOnInit(): void {

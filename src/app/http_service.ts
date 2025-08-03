@@ -4,6 +4,7 @@ import { Item } from "./Item";
 import { Observable } from "rxjs";
 import { User } from "./User";
 import { Cart } from "./cart";
+import { ItemStringPath } from './itemStringPath'
 
 @Injectable({
     providedIn: 'root'
@@ -38,6 +39,10 @@ export class HttpService {
     public updateItem(formData: FormData,id: number) {
         return this.http.put<Item[]>(`https://localhost:7277/api/Items/`+ id, formData );
     }
+
+    public updateItemWithNoChangeInImage(item: ItemStringPath,id: number) {
+        return this.http.put<Item[]>(`https://localhost:7277/api/Items/by-path/`+ id, item );
+    }
     public deleteItem(id:number) {
         return this.http.delete<Item[]>(`https://localhost:7277/api/Items/`+id);
     }
@@ -63,6 +68,10 @@ export class HttpService {
     }
 
     public updateCart(cart: Cart,id: number) {
-        return this.http.put<Item[]>(`https://localhost:7277/api/Carts/`+ id, cart );
+        return this.http.put<Cart[]>(`https://localhost:7277/api/Carts/`+ id, cart );
+    }
+
+    public deleteCart(id:number) {
+        return this.http.delete<Cart[]>(`https://localhost:7277/api/Carts/`+id);
     }
 }

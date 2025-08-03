@@ -52,28 +52,23 @@
   <div *ngFor="let cart of carts" class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img style="height: 150px; width: 150px;" [src]="'https:/localhost:7277/' + itemMap[cart.itemId]?.gender + '/' + itemMap[cart.itemId]?.path" class="img-fluid rounded-start" alt="...">
+        <img style="height: 200px; width: 200px;" [src]="'https:/localhost:7277/' + itemMap[cart.itemId]?.gender + '/' + itemMap[cart.itemId]?.path" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <img  style="position:absolute;margin-left: 280px;" src="/cart/heart.png" />
-          <img (click)="deleteCart()" style="cursor: pointer;position:absolute;margin-left: 300px;z-index: 10;" src="/cart/delete.png" />
-          <h5 style="" class="card-title">{{itemMap[cart.itemId]?.name}} </h5>
+          <img id="{{cart.id}}" (click)="deleteCart($event)" style="cursor: pointer;position:absolute;margin-left: 300px;z-index: 10;" src="/cart/delete.png" />
+          <h5 style="" class="card-title">{{itemMap[cart.itemId].name}} </h5>
           
-          <h5 style="" class="card-text">{{itemMap[cart.itemId]?.price | currency}} </h5>
-          <select id="size" class="form-select" aria-label="Default select example" style="width: 90%;">
-            <option value="" disabled selected>Select Size</option>
-            <option value="XS">XS</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-            <option value="XL">XL</option>
-          </select>
+          <h5 style="" class="card-text">{{itemMap[cart.itemId].price | currency}} </h5>
+          <h5 id="{{cart.id}}_{{cart.itemId}}_size">
+            {{cart.size}}
+          </h5>
 
           <div style="display: flex; align-items: center; gap: 5px; width: fit-content;">
             <button id="{{cart.id}}_{{cart.itemId}}_minus" class="btn btn-primary mb-3" style="margin-top: 13px;color: black;background-color: white;width: 50px;border:black" (click)="minusQuantity($event)">-</button>
             <input id="{{cart.id}}_{{cart.itemId}}" type="number" (change)="updateCartThroughInput($event)" class="form-control" style="width: 60px;" value={{cart.quantity}} min="0" max="10"/>
-            <button id="{{cart.id}}_{{cart.itemId}}_plus" class="btn btn-primary mb-3" style="margin-top: 13px;color:black;background-color: white;border:black;width: 50px;" (click)="addQuantity()">+</button>
+            <button id="{{cart.id}}_{{cart.itemId}}_plus" class="btn btn-primary mb-3" style="margin-top: 13px;color:black;background-color: white;border:black;width: 50px;" (click)="addQuantity($event)">+</button>
           </div>
         </div>
       </div>

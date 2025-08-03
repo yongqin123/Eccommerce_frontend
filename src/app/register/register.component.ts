@@ -21,7 +21,7 @@ export class RegisterComponent {
   private userService = inject(HttpService);
   private formBuilder = inject(FormBuilder);
   form = this.formBuilder.group({
-    id : [0],
+    id : [],
     name : ['', {validators: [Validators.required]}],
     email : ['', {validators: [Validators.required]}],
     password : ['', {validators: [Validators.required]}],
