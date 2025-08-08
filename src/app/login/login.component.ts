@@ -13,7 +13,7 @@ export class LoginComponent {
   users : User[] = [];
   
   constructor(public service: HttpService )  {}
-      
+  timer() {}
   login(email: string, password: string) {
   this.service.getUserByEmailAndPassword(email, password).subscribe((data: User[]) => {
     this.users = data;
@@ -26,6 +26,16 @@ export class LoginComponent {
         window.location.href = "/admin";
       }
     } else {
+      const alert = document.getElementById("alert") as HTMLDivElement;
+      alert.style.display = "";
+      alert.classList.add("disappearing");
+      setTimeout(function () {
+        alert.classList.remove("disappearing");
+        alert.style.display = "none";
+      }, 3000); // 2000ms = 2 seconds
+
+      
+     // alert.style.animation = "myAnimation 2s"
       console.log("Invalid login.");
     }
   });

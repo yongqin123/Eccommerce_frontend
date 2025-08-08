@@ -19,6 +19,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './admin.component.css'
 })
 export class AdminComponent implements OnInit {
+  
+
 
   selectedOption = 'Gender';
   hide = signal(true);
@@ -71,7 +73,9 @@ export class AdminComponent implements OnInit {
     formData.append('Price', item.price.toString());
     
     this.itemService.addItem(formData).subscribe();
+    localStorage.setItem("add", "add");
     window.location.href = "/admin";
+    
   }
 
   viewItem() {
@@ -84,9 +88,24 @@ export class AdminComponent implements OnInit {
   
 
   constructor(public service: HttpService )  {}
-    ngOnInit(): void {
-      this.getItems();
-  }
+   ngOnInit(): void {
+  this.getItems();
+
+  
+    if (localStorage.getItem("add") == "add") {
+      const alert = document.getElementById("alert") as HTMLDivElement;
+      if (alert) {
+        alert.style.display = "";
+        alert.classList.add("disappearing");
+        setTimeout(() => {
+          alert.classList.remove("disappearing");
+          alert.style.display = "none";
+        }, 4000);
+      }
+      localStorage.setItem("add", "");
+    }
+}
+
   
   getItems() {
   this.service.getAllItems().subscribe((data: Item[]) => {

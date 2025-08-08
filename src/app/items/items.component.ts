@@ -11,7 +11,7 @@ import { HttpService } from '../http_service';
 import { Item } from '../Item';
 import { Router } from '@angular/router';
 import { ItemStringPath } from '../itemStringPath';
-//import { ItemStringPath } from '../ItemStringPath';
+//import { ItemStringPath } from '../ItemStringPath.ts';
 
 @Component({
   selector: 'app-items',

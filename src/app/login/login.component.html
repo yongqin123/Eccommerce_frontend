@@ -24,6 +24,22 @@
             <button (click)="login(emailInput.value,passwordInput.value)" class="btn btn-primary" style="width: 100px;margin-left: 100px; background-color: #5044e4; color: white; border:0px">Sign In</button>
             <button (click)="Register()" class="btn btn-primary" style="width: 100px; background-color: #5044e4; color: white; margin-left: 50px; border:0px">Register</button>
         </div>
-    
+    <div class="toast-container">
+  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="..." class="rounded me-2" alt="...">
+      <strong class="me-auto">Bootstrap</strong>
+      <small class="text-muted">just now</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      See? Just like this.
+    </div>
+  </div>
+
+  <div class="alert alert-danger position-fixed bottom-0 end-0 p-3" id="alert" role="alert" style="display: none">
+   Wrong Password or Email Address
+</div>
+</div>
     
 </div>

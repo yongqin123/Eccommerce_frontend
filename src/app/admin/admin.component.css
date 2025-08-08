@@ -33,3 +33,24 @@ td, th {
     width: 300px;
 }
 
+@keyframes myAnimation{
+  0%{
+    opacity: 1;
+    
+  }
+  50%{
+    opacity: 1;
+   
+  }
+  100%{
+    display: none;
+    opacity: 0;
+    
+  }
+}
+
+.disappearing {
+    animation-name: myAnimation;
+    animation-duration: 3000ms;
+   animation-fill-mode: forwards;
+}
