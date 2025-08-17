@@ -50,7 +50,7 @@ export class CartComponent {
       var cart = new Cart(id, itemId, localStorage.getItem("email") ?? "", quantity, size);
       this.service.updateCart(cart, id).subscribe();
 
-      //window.location.href = "/cart";
+      window.location.href = "/cart";
 }
     
   }
@@ -72,7 +72,7 @@ export class CartComponent {
       
       var cart = new Cart(id,itemId,localStorage.getItem("email")??"",parseInt(input.value),size);
       this.service.updateCart(cart,id).subscribe();
-      //window.location.href = "/cart";
+      window.location.href = "/cart";
     }
     
   } 
@@ -111,7 +111,7 @@ export class CartComponent {
     var quantity = parseInt(input.value);
     var cart = new Cart(id,itemId,localStorage.getItem("email")??"",quantity,"xs");
     this.service.updateCart(cart,id).subscribe();
-    //window.location.href = "/cart";
+    window.location.href = "/cart";
   }
 
   
